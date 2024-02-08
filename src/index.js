@@ -2,7 +2,6 @@ import { changeDir, getHomeDir, showCurrentPath } from "./helpers.js";
 import { cliCommandsHandler } from "./cli/handler.js";
 import { cwd } from "process";
 import { osCommandsHandler } from "./os/handler.js";
-import path from "path";
 
 const getUserName = () => {
   const arg = process.argv.slice(2);
@@ -17,7 +16,7 @@ const onStartProgram = () => {
   const initialDir = getHomeDir();
 
   console.log(`Welcome to the File Manager, ${userName}!`);
-  changeDir(path.join(initialDir, "Documents/NodeJs/RS/FileManager"));
+  changeDir(initialDir);
   showCurrentPath(cwd());
 
   process.stdin.on("data", async (chunk) => {
