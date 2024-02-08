@@ -75,7 +75,7 @@ export const cp = async (source, destination) => {
 };
 
 export const hash = async (source) => {
-  const readStream = createReadStream(sourcePath);
+  const readStream = createReadStream(source);
 
   const getHash = (data) => createHash("sha256").update(data).digest("hex");
 
